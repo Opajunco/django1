@@ -1,0 +1,50 @@
+{% extends 'layout.html' %}
+
+{% block title %} Inicio {% endblock %}
+ 
+
+
+{% comment "Esto es un comentario" %}
+
+<h1>Todo lo que meta aquí ni puto caso</h1>
+
+{% endcomment %}
+
+<h1>nasti de plasti</h1>
+
+{% block content %}
+
+
+
+
+<h1>{{titulo}}</h1>
+
+<h1>TITULO 1</h1>
+<hr>
+
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere quis corrupti, quisquam ad architecto eius voluptatum, iure officia iste aperiam nisi quae saepe earum atque vel, voluptate similique repellat. Praesentium.</p>
+<br>
+<strong>noooooooooo</strong>
+
+        
+
+{{mi_variable}}
+
+{% if nombre %}
+<p>{{nombre}}</p>
+{% else %}
+<p>El nombre no existe </p>
+{% endif %}
+{{languages}}
+{% for lan in languages %}
+<li>{{forloop.counter}} {{lan}}</li>
+{% empty %}
+<p>no hay mlenguajesss
+{% endfor %}
+
+<p>Años hasta el 2025</p>
+{% load filters %}
+{{"Franulo Jerez"|saludo|safe}}
+
+
+{% endblock %}

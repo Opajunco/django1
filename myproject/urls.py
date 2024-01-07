@@ -15,9 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+
+#mis vistas
 from miapp import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.hola_mundo, name='helloWorld')
+    path('', views.index, name='index'), #como he importado views anteriormente no tengo que poner miapp
 ]
