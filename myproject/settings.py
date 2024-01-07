@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-ta2v%t0=(b-7p7k(_hh3un3=1%a5(ju6dv0j*1k7!r7-dn_=41
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['93.189.95.134','franciscojerezgestion.com','localhost']
+ALLOWED_HOSTS = ['93.189.95.134','franciscojerezgestion.com','localhost', '127.0.0.1']
 
 
 # Application definition
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'miapp',
 ]
 
 MIDDLEWARE = [
@@ -74,14 +75,14 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'myproject',
-	'USER': 'fran',
-	'PASSWORD': 'jander',
-	'HOST': 'localhost',
-	'PORT':'',
-    }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    #     'NAME': 'myproject',
+	# 'USER': 'fran',
+	# 'PASSWORD': 'jander',
+	# 'HOST': 'localhost',
+	# 'PORT':'',
+    #}
 }
 
 
