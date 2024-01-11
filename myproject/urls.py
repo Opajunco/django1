@@ -22,4 +22,7 @@ from miapp import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'), #como he importado views anteriormente no tengo que poner miapp
+    path('lista-obras',views.listaObras, name='listaObras'),
+    path('autocad/<str:user>/<str:pwd>', views.autocad, name='autocad'),
+    path('google',views.hola_mundo, name='google'),
 ]
