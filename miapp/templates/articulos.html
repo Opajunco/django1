@@ -1,4 +1,3 @@
-
 {% extends 'layout.html' %}
 {% block content %}
 
@@ -12,19 +11,21 @@
 <table class="table table-hover">
     <thead>
       <tr>
-        <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
+        <th scope="col">id/th>
+        <th scope="col">Título</th>
+        <th scope="col">Contenido</th>
+        <th scope="col">Public</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-      </tr>
+        {% for articulo in articulos %}
+        <tr>
+          <th scope="row">{{articulo.id}}</th>
+          <td>{{articulo.title}}</td>
+          <td>{{articulo.content}}</td>
+          <td>{{articulo.public}}</td>
+        </tr>
+        {% endfor %}
       <tr>
         <th scope="row">2</th>
         <td>Jacob</td>
@@ -40,4 +41,3 @@
   </table>
   
   {% endblock %}
-

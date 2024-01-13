@@ -14,15 +14,21 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 #mis vistas
-from miapp import views
+from miapp import views as miappViews
+from obras import views as obrasViews
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index, name='index'), #como he importado views anteriormente no tengo que poner miapp
-    path('lista-obras',views.listaObras, name='listaObras'),
-    path('autocad/<str:user>/<str:pwd>', views.autocad, name='autocad'),
-    path('google',views.hola_mundo, name='google'),
+    path('', miappViews.index, name='index'), #como he importado views anteriormente no tengo que poner miapp
+    path('lista-obras/',obrasViews.listaObras, name='listaObras'),
+    path('autocad/<str:user>/<str:pwd>', miappViews.autocad, name='autocad'),
+    path('google',miappViews.hola_mundo, name='google'),
+    path('crear-articulo/<str:title>/<str:content>/<str:public>', miappViews.crear_articulo, name='crear_articulo'),
+    path('articulo/<int:pk>', miappViews.articulo, name='articulo'),
+    path('articulos/', miappViews.articulos, name='articulos'),
+    path('miapp/', include('miapp.urls'))
 ]

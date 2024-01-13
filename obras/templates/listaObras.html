@@ -1,0 +1,211 @@
+
+{% extends 'layout.html' %}
+
+{%load static%}
+{% block content %}
+
+{% comment %} <body class='bodyHome pt-5 mt-5' style= "background-image: src='{% static 'img/logo2.png' %}'"> {% endcomment %}
+   
+    {% comment %} <img width="80" height="80" src="{% static 'img/logo2.png' %}" > {% endcomment %}
+{% comment %} <p><img width="80" height="80" src="{% static 'img/logo2.png' %}" ></p> {% endcomment %}
+
+<h2>{{titulo}}</h2>
+
+ 
+{% comment %}     
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Select Day</th>
+            <th scope="col">Article Name</th>
+            <th scope="col">Author</th>
+            <th scope="col">Words</th>
+            <th scope="col">Shares</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" id="customCheck1" checked>
+                  <label class="custom-control-label" for="customCheck1">1</label>
+              </div>
+            </td>
+            <td>Bootstrap 4 CDN and Starter Template</td>
+            <td>Cristina</td>
+            <td>913</td>
+            <td>2.846</td>
+          </tr>
+          <tr>
+            <td>
+              <div class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" id="customCheck2">
+                  <label class="custom-control-label" for="customCheck2">2</label>
+              </div>
+            </td>
+            <td>Bootstrap Grid 4 Tutorial and Examples</td>
+            <td>Cristina</td>
+            <td>1.434</td>
+            <td>3.417</td>
+          </tr>
+          <tr>
+            <td>
+              <div class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" id="customCheck3">
+                  <label class="custom-control-label" for="customCheck3">3</label>
+              </div>
+            </td>
+            <td>Bootstrap Flexbox Tutorial and Examples</td>
+            <td>Cristina</td>
+            <td>1.877</td>
+            <td>1.234</td>
+          </tr>
+        </tbody>
+      </table>
+  
+
+
+
+
+
+
+
+
+
+
+
+       
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">titulo</th>
+        <th scope="col">Contenido</th>
+        <th scope="col">public</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+      </tr>
+      
+      <tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td colspan="2">Larry the Bird</td>
+        <td>@twitter</td>
+      </tr>
+    </tbody>
+  </table> {% endcomment %}
+
+
+
+
+    
+    <button type="button" id='btnResult'
+    class="btn btn-primary btn-lg btn-block">Resultados</button>
+      
+
+      <form class = 'non-selectable'>
+
+
+        
+        <!-- PRIMER BLOQUE DE CHECKS-->
+        <div class="form-check py-4 bg-secondary text-white">
+          <input class="form-check-input" name='parent1' type="checkbox" 
+          data-checkparent=1 style="width: 20px;height:20px">
+          <label class="form-check-label pl-5" for="parent1">Bloque 1</label><br>
+        </div>
+
+        {% for i in bloque1 %}       
+                 <!-- aquí creamos los checks -->
+                 <div class="form-check py-4">
+                    <input class="form-check-input" type="checkbox" 
+                    data-checkid="{{i}}" data-checkchild = 1
+                    name="check{{i}}" value="{{i}}" style="width: 20px;height:20px">
+                    <label class="form-check-label pl-5" for="check{{i}}">Check{{i}}</label><br>
+                  </div>
+       
+       {% endfor %}
+
+       
+
+       
+
+
+
+                  <!-- SEGUNDO BLOQUE DE CHECKS-->
+                  <div class="form-check py-4 bg-secondary text-white">
+          <input class="form-check-input" name='parent2' type="checkbox" 
+          data-checkparent=2 style="width: 20px;height:20px">
+          <label class="form-check-label pl-5" for="parent2">Bloque 2</label><br>
+        </div>
+        
+        {% for i in bloque2 %}
+       
+                 <!-- aquí creamos los checks -->
+                 <div class="form-check py-4">
+                  <input class="form-check-input" type="checkbox" 
+                  data-checkid="{{i}}" data-checkchild = 2
+                  name="check{{i}}" value="{{i}}" style="width: 20px;height:20px">
+                  <label class="form-check-label pl-5" for="check{{i}}">Check{{i}}</label><br>
+                </div>
+       
+       {% endfor %}
+
+
+
+        <script>
+          // var touchStartTimeStamp = 0;
+          // var touchEndTimeStamp = 0;
+
+          // boton = document.getElementsByTagName('button')[0];
+          // parrafo = document.getElementsByTagName('p')[0];
+
+
+          // window.addEventListener('touchstart', onTouchStart, false);
+          // window.addEventListener('touchend', onTouchEnd, false);
+
+
+          // function onTouchStart(e) {
+          //   touchStartTimeStamp = e.timeStamp;
+          //   timeout = setTimeout(function() {
+          //     alert('pasaron más de 1000 microaños');
+          //     // console.log('Input Value:', textInput.value);
+          //   }, 400);
+          // }
+
+          // function onTouchEnd(e) {
+          //   touchEndTimeStamp = e.timeStamp;
+          //   clearTimeout(timeout);
+
+          //   alert(touchEndTimeStamp - touchStartTimeStamp); // in miliseconds
+          // }
+        </script>
+
+
+      </form>
+    </div>
+    <script src="{%static 'js/checkin.js'%}"></script>
+    {% comment %} <script src="assets/checkin.js"></script> {% endcomment %}
+  
+
+
+
+
+
+
+
+
+
+  
+  {% endblock %}
+

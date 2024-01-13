@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+{%load static%}
+{% block content %}
+
+{% comment %} <body class='bodyHome pt-5 mt-5' style= "background-image: src='{% static 'img/logo2.png' %}'"> {% endcomment %}
+   
+    {% comment %} <img width="80" height="80" src="{% static 'img/logo2.png' %}" > {% endcomment %}
+{% comment %} <p><img width="80" height="80" src="{% static 'img/logo2.png' %}" ></p> {% endcomment %}
+
+<h2>{{titulo}}</h2>
+       
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 mx-auto my-4">
+            <select class="form-control text-center" name="" id="cboPais"></select>
+            <br>
+            <select class="form-control text-center" name="" id="cboCiudad"></select>
+            <br>
+            <h4 id="txtAlcalde" class="text-center my-4"></h4>
+
+        </div>
+    </div>
+</div>
+
+
+<script src="{%static 'js/index.js'%}"></script>
+  
+  {% endblock %}
