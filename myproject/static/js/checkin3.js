@@ -169,7 +169,9 @@ const cargadivs = async () => {
         "[data-checkchild='" + padresitonumber + "']"
       );
       for (j = 0; j < hijitos.length; j++) {
-        hijitos[j].checked = estado;
+        // hijitos[j].checked = estado;
+        shadowrow (estado, hijitos[j]);
+
         console.log(hijitos[j]);
       }
     };
@@ -178,6 +180,22 @@ const cargadivs = async () => {
 
 
 }
+
+// boolcheck verdadero si queremos que esté check y falso si no
+function shadowrow(boolcheck, checkobject) {
+  if (boolcheck == false) {
+    checkobject.checked = false;
+    checkobject.parentElement.parentElement.style = "background: rgba(0,0,0,0)"
+  } else {
+  
+    checkobject.checked = true;
+    checkobject.parentElement.parentElement.style = "background: rgba(0,0,0,0.3)"
+  }
+
+}
+
+
+
 
 
 

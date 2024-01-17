@@ -29,7 +29,8 @@ def autocad(request, user='', pwd=''):
     return HttpResponse(f"{user}, {pwd}")
 
 
-
+def flexbox(request):    
+    return render(request, 'flexbox.html', {'titulo':'flexbox' })
 
 
 def crear_articulo(request, title, content, public):
