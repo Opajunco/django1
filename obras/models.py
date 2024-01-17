@@ -14,6 +14,7 @@ class Obra(models.Model):
     image = models.ImageField(default='null')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    ended = models.BooleanField(default = False)
     
     # pais = models.ForeignKey(
     # Pais, null=False, blank=False, on_delete=models.CASCADE)

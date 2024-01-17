@@ -24,11 +24,11 @@ from obras import views as obrasViews
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', miappViews.index, name='index'), #como he importado views anteriormente no tengo que poner miapp
-    path('lista-obras/',obrasViews.listaObras, name='listaObras'),
     path('autocad/<str:user>/<str:pwd>', miappViews.autocad, name='autocad'),
     path('google',miappViews.hola_mundo, name='google'),
     path('crear-articulo/<str:title>/<str:content>/<str:public>', miappViews.crear_articulo, name='crear_articulo'),
     path('articulo/<int:pk>', miappViews.articulo, name='articulo'),
     path('articulos/', miappViews.articulos, name='articulos'),
-    path('miapp/', include('miapp.urls'))
+    path('miapp/', include('miapp.urls')),
+    path('obras/', include('obras.urls'))
 ]

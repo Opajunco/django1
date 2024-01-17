@@ -116,23 +116,28 @@
 
       <form class = 'non-selectable'>
 
-
+      <div id="divobras">
         
         <!-- PRIMER BLOQUE DE CHECKS-->
-        <div class="form-check py-4 bg-secondary text-white">
-          <input class="form-check-input" name='parent1' type="checkbox" 
-          data-checkparent=1 style="width: 20px;height:20px">
-          <label class="form-check-label pl-5" for="parent1">Bloque 1</label><br>
+        <div class="rowfran bloque">
+          <div class="checkdivfran">
+            {% comment %} <input type="checkbox" class="btn-check" id="btn-check-2" checked autocomplete="off"> {% endcomment %}
+            <input class="checkfran" name='parent1' type="checkbox" id="parentid1" data-checkparent=1 >
+          </div>
+          <div class="" style="width:100px;margin-top:20px;margin-left:20px"><label class="" for="parentid2">Bloque 1</label></div>
         </div>
 
         {% for i in bloque1 %}       
                  <!-- aquí creamos los checks -->
-                 <div class="form-check py-4">
-                    <input class="form-check-input" type="checkbox" 
-                    data-checkid="{{i}}" data-checkchild = 1
-                    name="check{{i}}" value="{{i}}" style="width: 20px;height:20px">
-                    <label class="form-check-label pl-5" for="check{{i}}">Check{{i}}</label><br>
-                  </div>
+                 <div class="rowfran">
+                  <div class="checkdivfran">
+                   <input class="checkfran form-check-input" type="checkbox" id="checkid{{i}}"
+                   data-checkid="{{i}}" data-checkchild = 1
+                   name="check{{i}}" value="{{i}}" style="width: 20px;height:20px">
+                 </div>
+                 <div class=""style="width:100px;margin-top:20px;margin-left:20px"><label class="form-group form-check-label pl-5 unselectable not-selectable" for="checkid{{i}}">Check{{i}}</label></div>
+              
+               </div>
        
        {% endfor %}
 
@@ -143,25 +148,29 @@
 
 
                   <!-- SEGUNDO BLOQUE DE CHECKS-->
-                  <div class="form-check py-4 bg-secondary text-white">
-          <input class="form-check-input" name='parent2' type="checkbox" 
-          data-checkparent=2 style="width: 20px;height:20px">
-          <label class="form-check-label pl-5" for="parent2">Bloque 2</label><br>
+
+        <div class="rowfran bloque">
+          <div class="checkdivfran">
+            <input class="checkfran" name='parent2' type="checkbox" id="parentid2" data-checkparent=2>
+          </div>
+          <div class="" style="width:100px;margin-top:20px;margin-left:20px"><label class="" for="parentid2">Bloque 2</label></div>
         </div>
         
         {% for i in bloque2 %}
        
                  <!-- aquí creamos los checks -->
-                 <div class="form-check py-4">
-                  <input class="form-check-input" type="checkbox" 
+                 <div class="rowfran">
+                 <div class="checkdivfran">
+                  <input class="checkfran form-check-input" type="checkbox" id="checkid{{i}}"
                   data-checkid="{{i}}" data-checkchild = 2
                   name="check{{i}}" value="{{i}}" style="width: 20px;height:20px">
-                  <label class="form-check-label pl-5" for="check{{i}}">Check{{i}}</label><br>
                 </div>
+                <div class=""style="width:100px;margin-top:20px;margin-left:20px"><label class="form-group form-check-label pl-5 unselectable not-selectable" for="checkid{{i}}">Check{{i}}</label></div>
+             
+              </div>
        
        {% endfor %}
-
-
+      </div>
 
         <script>
           // var touchStartTimeStamp = 0;
@@ -194,7 +203,8 @@
 
       </form>
     </div>
-    <script src="{%static 'js/checkin.js'%}"></script>
+    <script src="{%static 'js/checkin3.js'%}"></script>
+    <script src="{%static 'js/indexobras.js'%}"></script>
     {% comment %} <script src="assets/checkin.js"></script> {% endcomment %}
   
 
