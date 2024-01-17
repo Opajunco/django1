@@ -106,6 +106,11 @@ for (var i = 0; i < checks.length; i++) {
     }
   });
 
+
+
+
+
+
   checks[i].addEventListener("focus", function () {
     checkYes = true;
   });
@@ -162,6 +167,15 @@ function tachinou(e) {
   // alert(touchEndTimeStamp - touchStartTimeStamp); // in miliseconds
 }
 
+
+
+
+
+
+
+//SELECCION POR BLOQUES
+
+
 parentchecks = document.querySelectorAll("input[data-checkparent]");
 for (i = 0; i < parentchecks.length; i++) {
   parentchecks[i].onchange = function () {
@@ -178,6 +192,10 @@ for (i = 0; i < parentchecks.length; i++) {
     }
   };
 }
+
+
+
+// PARA OBTENER LOS RESULTADOSSSS
 
 document.getElementById("btnResult").onclick = function () {
   
