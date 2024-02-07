@@ -1,0 +1,128 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/flexbox2.css'%}">
+</head>
+<body>
+ <a href="{% url "index" %}">Index</a>   
+<h1>{{titulo}}</h1>
+<h3>tables with flexbox</h3>
+
+
+<table class="table tableFixHead">
+    <tr>
+      <th class="check">Thing Number</th>
+      <th class="desc">Thing 2</th>
+      <th class="small">Thing 3</th>
+      <th class="small">Thing 4</th>
+      <th class="small">Thing 5</th>
+      <th class="med">Thing 6</th>
+      <th class="med">The final thing!</th>
+      <th class="empty botones"></th>
+    </tr>
+    <tr>
+      <td class="stickcol1">1</td>
+      <td class="stickcol2">some data</td>
+      <td>other data</td>
+      <td>ye?</td>
+      <td>nay?</td>
+      <td>smashing!</td>
+      <td>yeah!</td>
+      <td class="edit-buttons"><button class="edit">Edit</button><button class="delete">Delete</button></td>
+    </tr>
+    <tr>
+      <td class="stickcol1">2</td>
+      <td class="stickcol2">moar data</td>
+      <td>oh</td>
+      <td>bleep</td>
+      <td>bloop</td>
+      <td>blarp</td>
+      <td>yadig?</td>
+      <td class="edit-buttons"><button class="edit">Edit</button><button class="delete">Delete</button></td>
+    </tr>
+    <tr>
+      <td class="stickcol1">3</td>
+      <td class="stickcol2">evn mor dataz</td>
+      <td>yup!</td>
+      <td>boop</td>
+      <td>bip</td>
+      <td>bop</td>
+      <td>yeah!</td>
+      <td class="edit-buttons"><button class="edit">Edit</button><button class="delete">Delete</button></td>
+    </tr>
+    <tr>
+      <td class="stickcol1">4</td>
+      <td class="stickcol2">final data</td>
+      <td>yeah!</td>
+      <td>brap</td>
+      <td>bwamp</td>
+      <td>bwarp</td>
+      <td>beep</td>
+      <td class="edit-buttons"><button class="edit">Edit</button><button class="delete">Delete</button></td>
+    </tr>
+    <tr>
+        <td class="stickcol1">4</td>
+        <td class="stickcol2">final data</td>
+        <td>yeah!</td>
+        <td>brap</td>
+        <td>bwamp</td>
+        <td>bwarp</td>
+        <td>beep</td>
+        <td class="edit-buttons"><button class="edit">Edit</button><button class="delete">Delete</button></td>
+      </tr>
+      <tr>
+        <td class="stickcol1">4</td>
+        <td class="stickcol2">final data</td>
+        <td>yeah!</td>
+        <td>brap</td>
+        <td>bwamp</td>
+        <td>bwarp</td>
+        <td>beep</td>
+        <td class="edit-buttons"><button class="edit">Edit</button><button class="delete">Delete</button></td>
+      </tr>
+  </table>
+
+
+
+
+{% comment %} <table>
+    <thead>
+        <td>WRE EGDFSG SFG </td>
+        <td>SG DSF DG SFG </td>
+        <td> FDSG FSDG SFG</td>
+        <td> SDF GSDG GSD</td>
+    </thead>
+
+    <tr>
+        <td>asdfasdfasdgfdgsdf</td>
+        <td>sdfgsdfgdsfgsdfgsdffg</td>
+        <td>sdfgsdfgsdfgsfdgsdfgsd</td>
+        <td>fgsdfgsdfgsdfgsfdgsdfgsdfgsdf</td>
+    </tr>
+    <tr>
+        <td>gsdfgsdfgsdfgfd</td>
+        <td>sgsdfhs dfg sdfg sdfg g</td>
+        <td>f sdfg sdfg sdfg sdg </td>
+        <td> sdfg sdfg sdfg sdfg </td>
+    </tr>
+    <tr>
+        <td> sdfg sfg sfg sgf erwt </td>
+        <td>r twr wrg trhrth tr  </td>
+        <td> rth erht rth rth </td>
+        <td> htr eht thr </td>
+    </tr>
+    <tr>
+        <td> rth rth thr trerw wrg rew </td>
+        <td>rwe werg reg gfsdgf sdf g</td>
+        <td>wret r sdfg sfdg gs </td>
+        <td>wert er sdfg sff erwt RW </td>
+    </tr>
+</table> {% endcomment %}
+
+
+</body>
+</html>

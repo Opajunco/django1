@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'miapp',
     'obras',
+    'user',
 ]
 
 MIDDLEWARE = [
@@ -147,4 +148,6 @@ STATICFILES_DIRS = [
 ]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
 

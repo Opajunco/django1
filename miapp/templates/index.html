@@ -6,7 +6,25 @@
 </head>
 <body class='bodyHome pt-5 mt-5"' style="background-image: url('{% static "img\fondo2.jpeg" %}');">
   {%include 'navbar.html'%}
-  
+ 
+  {% if messages %}
+  {% for message in messages %}
+  <div class="alert alert-success">
+    {{message}}
+  </div>
+  {% endfor %}  
+  {% endif %}
+  <h2>{{user.username}}</h2>
+{% if user.username %}
+  <h2>{{user.username}}</h2>
+  <h2>Bienvenido, {{request.user.first_name}}</h2>
+  <p>{{user.email}}</p>
+
+  <p>{{ perms }}</p>
+{% else %} <h2>Identifícate</h2>
+  {% endif %}
+
+
   {#jumbotron#}
   <div class="jumbotron jumbotron-fluid" style="opacity:0.5;">
     <div class="container">

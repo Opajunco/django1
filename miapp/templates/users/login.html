@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-warning">
+  {{message}}
+</div>
+{% endfor %}  
+{% endif %}
+
+
+{{register_form.errors}}
+<div class="contform">
+  <h2>{{titulo}}</h2>
+<form action="" method="post">
+    {% csrf_token %}
+
+    <label for="username">Nombre de Usuario</label>
+    <input type="text" name="username" >
+
+    <label for="password">Contraseña </label>
+    <input type="password" name="password">
+
+    <input type="submit" value="Login">
+
+</form>
+</div>
+       
+  
+  {% endblock %}

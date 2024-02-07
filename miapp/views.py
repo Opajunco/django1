@@ -2,6 +2,11 @@
 from django.http import JsonResponse
 from django.shortcuts import render, HttpResponse, redirect
 from miapp.models import Article, Category, Pais, Ciudad
+from django.contrib.auth.forms import UserCreationForm
+from .forms import RegisterForm
+from django.contrib import messages
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -26,11 +31,21 @@ def index(request):
 
 def autocad(request, user='', pwd=''):
     # las comillas para que seas opcionales
-    return HttpResponse(f"{user}, {pwd}")
+    # return HttpResponse(f"{user}, {pwd}")  
+          
+    user = authenticate(request, username=user, password=pwd)
+        
+    if user is not None:
+        return HttpResponse("true") 
+    else:
+        messages.warning(request, 'No te has identificado correctamente')
+        return HttpResponse("false") 
+     
+    # return render(request, 'users/login.html', {'titulo':'Login'})
 
 
-def flexbox(request):    
-    return render(request, 'flexbox.html', {'titulo':'flexbox' })
+
+
 
 
 def crear_articulo(request, title, content, public):
@@ -84,3 +99,64 @@ def get_ciudades(request, pais_id):
     else:
         data = {'message': 'not found'}
     return JsonResponse(data)
+
+
+def register(request):
+    register_form = RegisterForm()
+    
+    if request.method == 'POST':
+        register_form = RegisterForm(request.POST)
+        
+    if register_form.is_valid():
+        register_form.save()
+        messages.success(request,"Te has registrado correctamente")
+        return redirect('index')
+    
+    
+    
+    
+    return render(request,'users/register.html', {
+        'titulo':'Registro',
+        'register_form':register_form
+        })
+    
+    
+def login_page(request):
+    
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        
+        user = authenticate(request, username=username, password=password)
+        
+        if user is not None:
+            login(request, user)
+            return redirect('index')
+        else:
+            messages.warning(request, 'No te has identificado correctamente')
+    
+    
+    return render(request, 'users/login.html', {'titulo':'Login'})
+
+def logout_user(request):
+    logout(request)
+    return redirect('login')
+
+
+
+@login_required(login_url='login')
+def flexbox(request): 
+    partidas =['enfoscado de cemento', 'alicatado en baño', 'falso techo', 'cocina', 'picado de pared exterior', 'pintado de rejas', 'asdñlfkjalñkdkf', 'añlsdkfjffladf','aslfdjkldaf']   
+    return render(request, 'flexbox.html', {
+        'titulo':'flexbox',
+        'partidas': partidas 
+        })
+
+@login_required(login_url='login')
+def flexbox2(request):    
+    return render(request, 'flexbox2.html', {'titulo':'flexbox2' })
+
+
+def tasascee(request):
+    lenguajes = ['Python', 'Nodejs', 'PHP']
+    return render(request, 'tasascee.html')

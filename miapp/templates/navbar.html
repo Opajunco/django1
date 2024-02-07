@@ -24,17 +24,32 @@
           {#Ejemplo AJAX#} <li class="nav-item">
             <a class="nav-link" href="{%url 'indexpaises'%}">AJAX</a>
           </li>
-
+          {% if user.is_authenticated %}
           {#Ejemplo flexbox#} <li class="nav-item">
             <a class="nav-link" href="{%url 'flexbox'%}">flexbox</a>
+          </li>          
+          {#logout#} <li class="nav-item">
+            <a class="nav-link" href="{%url 'logout'%}">Logout{{user.username}}</a>
+          </li>          
+          {% else %}
+          {#login#} <li class="nav-item">
+            <a class="nav-link" href="{%url 'login'%}">Login</a>
           </li>
+          {% endif %}
+
+          
+          {% comment %} {#registro#} <li class="nav-item">
+            <a class="nav-link" href="{%url 'register'%}">registro</a>
+          </li> {% endcomment %}
+
+          
 
 
           <li class="nav-item dropdown">
-           {#Dropdown#} <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
+           {#Dropdown#} <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Pruebas</a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href="{%url 'flexbox'%}">Flexbox-grid</a></li>
+              <li><a class="dropdown-item" href="{%url 'flexbox2'%}">Flexbox-table</a></li>
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="#">Something else here</a></li>
             </ul>

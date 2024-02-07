@@ -29,7 +29,9 @@ urlpatterns = [
     path('crear-articulo/<str:title>/<str:content>/<str:public>', miappViews.crear_articulo, name='crear_articulo'),
     path('articulo/<int:pk>', miappViews.articulo, name='articulo'),
     path('articulos/', miappViews.articulos, name='articulos'),
-    path('flexbox/', miappViews.flexbox, name='flexbox'),
     path('miapp/', include('miapp.urls')),
     path('obras/', include('obras.urls')),    
+    path('registro/', miappViews.register, name='register'),
+    path('login/',miappViews.login_page, name='login'),
+    path('logout/',miappViews.logout_user, name='logout')
 ]

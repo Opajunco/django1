@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+{% block content %}
+
+
+
+{{register_form.errors}}
+<div class="contform">
+  <h2>{{titulo}}</h2>
+<form action="" method="post">
+    {% csrf_token %}
+
+    {#{{register_form}}#}
+    {% for field in register_form %}
+
+    <label>{{field.label}}</label>
+    {{field}}
+    <br>
+    
+    {% endfor %}
+
+    <input type="submit" value="Registrarse">
+
+</form>
+</div>
+       
+  
+  {% endblock %}

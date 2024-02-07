@@ -1,0 +1,147 @@
+body{
+    padding: 0px;
+    margin: 0px;
+}
+
+
+table{
+
+table-layout:fixed;
+border-collapse: collapse;
+
+width:100%;
+min-width: 1000px;
+}
+
+.tableFixHead          { overflow: auto; height: 100px; }
+.tableFixHead th { position: sticky; top: 0; z-index: 1; background-color: blue;}
+.stickcol1 { position: sticky; left: 0px; z-index: 0; background-color: blue;}
+.stickcol2 { position: sticky; left: 80px; z-index: 0; background-color: rgb(67, 184, 145);}
+
+/* Just common table stuff. Really. */
+table  { border-collapse:collapse; width: 100%; }
+/* th, td { padding: 8px 16px; }
+th     { background:#eee; } */
+
+
+
+td {
+    border: orange 5px solid;
+    min-width: 80px;
+    height: 100px;
+  }
+
+table th.check{width: 80px;}
+table th.botones{width: 150px;}
+table th.med{width: 100px;}
+table th.desc{width: 50%;}
+table th.small{width: 25%;}
+
+/* table {
+    border-collapse: collapse;
+    text-align: left;
+    width: 100%;} */
+
+/* table tr {
+    background: rgb(153, 121, 243);
+    border-bottom: 1px solid
+} */
+/* table th, table td {
+    padding: 10px 20px;
+} */
+/* table td span {
+    background: #fdb7b7;
+    color: dimgrey;
+    display: none;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 5px;
+    position: absolute;
+    text-transform: uppercase;
+    top: 0;
+    left: 0;
+} */
+
+/* Simple CSS for flexbox table on mobile */
+ /* @media(max-width: 800px) {
+    table thead {
+        left: -9999px;
+        position: absolute;
+        visibility: hidden;
+    }
+    table tr {
+        border-bottom: 0;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-bottom: 40px;
+    }
+    table td {
+        border: 1px solid;
+        margin: 0 -1px -1px 0;
+        padding-top: 35px;
+        position: relative;
+        width: 50%;
+    }
+    table td span {
+        display: block;
+    }
+} */
+
+
+
+
+
+/*
+.table th, .table td { 
+  text-align: left; 
+  padding: 0.25em;
+}
+
+.table tr { 
+
+  border-bottom: 1px solid #7e5050;
+}
+td.edit-buttons { text-align: right; }
+button { 
+  width:100px;
+  border-radius: 3px; 
+  border: none; 
+  margin: 0 0.25em; 
+  transition: all 0.3s;
+}
+
+button:hover { 
+  box-shadow: 0 0 4px rgba(3,3,3,0.8); 
+  opacity: 0.9;
+}
+
+button.edit { background: #6F9; }
+button.delete { background: #F69; } */
+
+
+
+
+
+
+
+
+ /* @media screen and (max-width: 800px) {
+  tr { 
+    display: flex; 
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0.5em 0;
+    border: 1px solid rgba(3,3,3,0.2);
+  }
+  td, th {
+    flex: 1 1 150px;
+    border: 0.5px solid rgba(3,3,5,0.6);
+  }
+  td.edit-buttons, td.empty {
+    flex: 1 0 90%;
+    text-align: center;
+  }
+}  */
+
+/* { box-model: border-box; font-family: 'futura'; }
