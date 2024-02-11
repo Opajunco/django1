@@ -1,17 +1,17 @@
-let ciudades =[]
+let ciudades = []
 
 
 const listarObras = async () => {
     try {
-        const response=await fetch(`./get-obras/`);
-        const data=await response.json();
+        const response = await fetch(`./get-obras/`);
+        const data = await response.json();
         console.log(data);
-        indice=0;
-        indice_ended=0;
-        indicebloque=0;
-        if(data.message =="Success"){
+        indice = 0;
+        indice_ended = 0;
+        indicebloque = 0;
+        if (data.message == "Success") {
             obras = data.obras;
-            let html=``;
+            let html = ``;
 
             // obras.forEach((obra) => {
             //     html +=`<p>${obra.id} ${obra.titulo} ${obra.ended} ----------- ${obra.concepto} ${obra.comentarios} ${obra.porcGg} ${obra.porcBi} ${obra.gastosFijos}</p>`;
@@ -19,8 +19,8 @@ const listarObras = async () => {
 
             obras.forEach((obra) => {
 
-                if (obra.ended == false) {indice_ended = 1} else{indice:indice_ended =2}
-                if (indice_ended != indicebloque) { 
+                if (obra.ended == false) { indice_ended = 1 } else { indice: indice_ended = 2 }
+                if (indice_ended != indicebloque) {
                     html += `
                     <div class="rowfran bloque">
                     <div class="checkdivfran">
@@ -30,31 +30,31 @@ const listarObras = async () => {
                   </div>
                     
                     `
-                
+
                 }
 
-                html +=`<div class="rowfran"><div class="checkdivfran">
+                html += `<div class="rowfran"><div class="checkdivfran">
                 <input class="checkfran form-check-input" type="checkbox" id="${obra.id}"
                    data-checkid="${indice}" data-checkchild = ${indice_ended}
                    name="${obra.id}" value="${obra.id}">
                 </div>
                 <div class=""style="width:600px;margin-top:20px;margin-left:20px">
-                <label class="form-group form-check-label pl-5 unselectable not-selectable" for="checkid{{i}}">${obra.titulo}</label>
+                <a class="form-group form-check-label pl-5 unselectable not-selectable" href= "./partidas/${obra.id}/ ">${obra.titulo}</a>
                 </div>
-                </div>`   
-                indice +=1;
+                </div>`
+                indice += 1;
                 indicebloque = indice_ended;
             });
 
-                
+
 
             divobras.innerHTML = html;
             // mostrarAlcalde(ciudades[0].id);
             // cargadivs();
-        }else{
+        } else {
             alert("Obras no encontradas ...")
         }
-        
+
     } catch (error) {
         console.log(error)
     }

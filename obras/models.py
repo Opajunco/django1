@@ -61,33 +61,42 @@ class PartGenDB(models.Model):
  
 class Zona(models.Model):
     obra = models.ForeignKey(Obra, on_delete=models.CASCADE)
-    name = models.CharField(max_length=80)
+    name = models.CharField(max_length=100)
     order = models.IntegerField()
     def __str__(self) -> str:
         return "{}".format(self.name)
     
 class Fase(models.Model):
     obra = models.ForeignKey(Obra, on_delete=models.CASCADE)
-    name = models.CharField(max_length=80)
+    name = models.CharField(max_length=100)
+    order = models.IntegerField()
+    def __str__(self) -> str:
+        return "{}".format(self.name) 
+
+class Empr(models.Model):
+    obra = models.ForeignKey(Obra, on_delete=models.CASCADE)
+    name = models.CharField(max_length=100)
     order = models.IntegerField()
     def __str__(self) -> str:
         return "{}".format(self.name) 
  
  
 class PartResult(models.Model):
-    obra = models.ForeignKey(Obra, on_delete=models.CASCADE)
-    fase = models.ForeignKey(Fase, on_delete=models.CASCADE)
-    zona = models.ForeignKey(Zona, on_delete=models.CASCADE)
+    obra = models.ForeignKey(Obra, on_delete=models.SET_NULL, null=True, blank=True, default= None)
+    fase = models.ForeignKey(Fase, on_delete=models.SET_NULL, null=True, blank=True, default= None)
+    zona = models.ForeignKey(Zona, on_delete=models.SET_NULL, null=True, blank=True, default= None)
+    empr = models.ForeignKey(Empr, on_delete=models.SET_NULL, null=True, blank=True, default= None)
+
     # id_previa = models.ForeignKey('self', on_delete=models.SET_NULL)
-    title = models.CharField(max_length=100)
-    comments = models.TextField(blank=True) 
-    
+    title = models.CharField(max_length=200)
+    comments = models.TextField(blank=True)     
     checklater = models.BooleanField(default=False)
     checkdel = models.BooleanField(default=False)
-    checkended = models.BooleanField(default=False)
-        
-    precio_unit_mod = models.DecimalField(max_digits= 12, decimal_places=4)
-   
+    checkended = models.BooleanField(default=False)         
+    precio_unit_mod = models.DecimalField(max_digits= 12, decimal_places=4, default = 0)
+    terminado = models.DecimalField(max_digits= 5, decimal_places=4, default = 0)
+    main_coef = models.DecimalField(max_digits= 5, decimal_places=4, default = 1.2)
+    empr_coef = models.DecimalField(max_digits= 5, decimal_places=4, default = 0.8)
     def __str__(self) -> str:
         return "{}".format(self.title)   
  

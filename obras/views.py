@@ -4,7 +4,8 @@ from obras.models import Obra, PartGen, PartGenDB, PartResult
 from miapp.models import Article, Category, Pais, Ciudad
 # from user.models import Employee, Org
 # from django.contrib.auth.models import AbstractUser, User
-
+# from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
@@ -28,7 +29,7 @@ def get_obras(request):
     else:
         print ("no hay usuarioooooooo")
         
-    obras = list(Obra.objects.filter(id_org= current_user.employee.id_org.id ).order_by('ended').values())
+    obras = list(Obra.objects.filter(org= current_user.employee.org.id ).order_by('ended').values())
 
     if len(obras) > 0:
         data = {'message': 'Success', 'obras': obras}
@@ -56,3 +57,16 @@ def get_partidas_json(request,idObra, text=''):
     else:
         data = {'message': 'not found'}
     return JsonResponse(data)
+
+@login_required(login_url='login')
+def partidas(request, idObra):
+    partidas =['enfoscado de cemento dfsgd sdfg sdg sdfgsegserg rg sdgshsrhtsrth rth rthfhrth rg rhetherthwrgshdfhdh rthrth sfhddfhdfghdrthrtdhdghdf '
+               , 'alicatado en baño hdfghdhssldkgj sfgjsddlkg slñkfgjsñlkfgj sñdlkgjsñijgñdfjgñlksdj gñlksj dfñglkjs lkgj sñldkg sdlfg'
+               , 'falso techo dsgls dflñj dfñglsjfñlgjsñdlfgjksñlkfjgñlsdfjñglkjsdfñlkgjdfkjgñlksdjfgñlkjsdlfkgjsd gsd fkjdfglksjd gñlsjd ñfgkjsdgj sdgj lñskfjgñlskdjf gsdjfskf', 'cocina'
+               , 'picado de pared exterior'
+               , 'pintado de rejas', 'asdñlfkjalñkdkf', 'añlsdkfjffladf','aslfdjkldaf']   
+
+    return render(request, 'partidas.html', {
+        'partidas': partidas,
+        'titulo': 'Partidas',
+    })

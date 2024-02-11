@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/partidas.css'%}">
+</head>
+<body>
+
+<div class="containernav sticknav">
+    <div class="itcss item-1"><p>filtrar por</p></div>
+    <div class="itcss item-2"><p>partidas anuladas</p></div>
+    <div class="itcss item-3"><p>Descripción</p></div>
+    <div class="itcss item-4"><p>Descripción</p></div>
+    <div class="itcss item-5"><input id="txtSearch" class="search" type="search" placeholder="Search..."></div>
+</div>
+
+
+{% comment %} <div class="container stickhead">
+    <div class="itcss item-1 stickheadcol1"><p>capitulo</p></div>
+    <div class="itcss item-2 stickheadcol2"><p>Descripción</p></div>
+    <div class="itcss item-3"><p>Descripción</p></div>
+    <div class="itcss item-4"><p>Descripción</p></div>
+    <div class="itcss item-5">asdfasdfasdgasdfasd</div>
+    <div class="itcss item-6">sdfsdfsd</div>
+    <div class="itcss item-7">editar</div>
+</div> {% endcomment %}
+
+{% for partida in partidas %}
+<div class="container">
+    <div class="itcss item-1 stickcol1 azul">Check</div>
+    <div class="itcss item-2 stickcol2 azul" contenteditable>{{partida}}</div>
+    <div class="itcss input1 item-3"><input  type="med" value="34"><p>m2</p></div>
+    <div class="itcss input1"> <p>340 €</p><p><i>20€/m2</i></p></div>
+
+    <div class="itcss input1">
+        <select name="" id="">
+            {% comment %} <option value="" disabled selected>Selecciona una opción</option> {% endcomment %}
+            <option value="" ></option>
+            <option value="1">patio exterior</option>
+            <option value="1">interior</option>
+        </select>
+        <select name="" id="" >
+            <option value="" ></option>
+            <option value="1">fase 1</option>
+            <option value="1">fase 2</option>
+        </select>
+
+    </div>
+
+    <div class="itcss input1">
+        <select name="" id="">
+            <option value="1">electricidad</option>
+            <option value="1">movimiento de tierras</option>
+        </select>
+        <select name="" id="" >
+            <option value="1">stepan kitura</option>
+            <option value="1">paco gaitan</option>
+        </select>
+
+    </div>
+
+    <div class="itcss item-6">
+        <label for="file">terminado:70%</label>
+        
+        <br>
+
+        <progress id="file" max="100" value="70">70%</progress>
+    </div>
+
+    <div class="itcss item-7">precio final  / coef </div>
+    <div class="itcss item-7">precio empr  / coef </div>
+    <div class="itcss item-7" contenteditable >comentarios </div>
+    <div class="itcss item-7">edit del </div>
+</div>
+
+
+{% endfor %}
+
+
+
+<script src="{%static 'js/main2.js'%}"></script>
+
+</body>
+</html>

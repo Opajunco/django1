@@ -14,8 +14,8 @@ class Org(models.Model):
 
 
 class Employee(models.Model):
-    id_user = models.OneToOneField(User, on_delete=models.CASCADE)
-    id_org = models.ForeignKey(Org, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    org = models.ForeignKey(Org, on_delete=models.CASCADE)
     
 # #this method to generate profile when user is created
 # @receiver(post_save, sender=User)
