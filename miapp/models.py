@@ -42,3 +42,5 @@ class Ciudad(models.Model):
 
     class Meta:
         db_table = 'ciudad'
+        
+

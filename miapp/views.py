@@ -160,3 +160,113 @@ def flexbox2(request):
 def tasascee(request):
     lenguajes = ['Python', 'Nodejs', 'PHP']
     return render(request, 'tasascee.html')
+
+
+
+
+
+
+# from .forms import ContactForm
+# from django.http import JsonResponse
+# from django.shortcuts import render
+# import threading
+
+
+
+# import os
+# from django.conf import settings
+# from django.core.mail import EmailMultiAlternatives
+# from django.template.loader import render_to_string
+# from django.core.files.storage import default_storage
+# from django.core.files.base import ContentFile
+
+
+# from send_mail import send_email #archivo send_mail.py con la función send_mail() from .forms import ContactForm # Create your views here.
+
+
+
+
+
+
+
+
+# def send_email(
+#     subject="Nuevo aviso",
+#     to=[],
+#     template_txt="",
+#     template_html="",
+#     data={},
+#     # attachments=[],
+# ):
+#     """Send email"""
+#     msg = EmailMultiAlternatives(
+#         subject,
+#         render_to_string(template_txt, data),
+#         settings.DEFAULT_FROM_EMAIL,
+#         to,
+#     )
+#     msg.attach_alternative(render_to_string(template_html, data), "text/html")
+#     # for attachment in attachments:
+#     #     msg.attach_file(attachment)
+#     msg.send()
+
+
+# def get_paths_to_files_stored_in_memory(files):
+#     """Get paths to files stored in memory"""
+
+#     def get_url_from_memory_file(file):
+#         path = default_storage.save("tmp/" + str(file), ContentFile(file.read()))
+#         return os.path.join(settings.MEDIA_ROOT, path)
+
+#     return list(map(get_url_from_memory_file, files))
+
+
+
+
+
+
+
+
+# def contact(request):
+#     form = ContactForm(request.POST, request.FILES)
+
+#     if request.method == "POST":
+#         if form.is_valid():
+#             # Get all url files
+#             # files = request.FILES.getlist("files")
+#             # files_paths = get_paths_to_files_stored_in_memory(files)
+#             # Send email in background
+#             threading_emails = threading.Thread(
+#                 target= send_email,
+#                 args=(
+#                     subject== 'nuevo aviso',
+#                     to=["info@franciscojerez.com"],
+#                     template_txt="contact_email.txt",
+#                     template_html="contact_email.html",
+#                     data={
+#                         "name": form.cleaned_data.get("name"),
+#                         "email": form.cleaned_data.get("email"),
+#                         "message": form.cleaned_data.get("message"),
+#                     },
+#                     # attachments=files_paths,
+                
+#                      ),
+#             )
+#             threading_emails.start()
+#             # Response
+#             return JsonResponse({"status": "success"})
+#         else:
+#             return JsonResponse({"status": "ko", "errors": form.errors})
+#     return render(request, "public/contact.html", {"form": form})
+
+
+
+
+
+
+
+
+
+
+
+

@@ -29,7 +29,9 @@ su coprrespondiente "data-checkparent"
 
 // 
 
-var checks = document.querySelectorAll("input[data-checkid]");
+// var checks = document.querySelectorAll("input[data-checkid]");
+
+//esto tiene que ir cuando se cargen las partidasssss
 //colección de todos los checks con el atributo data-checkid
 
 var ShiftPressed = false; //true si tenemos presionada la tecla Shift
@@ -64,18 +66,22 @@ window.addEventListener("keyup", function (event) {
   }
 });
 
-
-
 // con este código ya tenemos ShiftPressed = true solo cuando estamos pulsando Shift
+
+
+
 
 const cargadivs = async () => {
   // function cargadivs () {
 
   checks = document.querySelectorAll("input[data-checkid]");
+  // los checks los actualizamos cada vez que se cargan las partidas, por lo
 
   for (var i = 0; i < checks.length; i++) {
 
+  
     checks[i].addEventListener("click", function () {
+      
 
       if (ShiftPressed == false) {  //si no tenemos Shift presionado 
 
@@ -185,11 +191,11 @@ const cargadivs = async () => {
 function shadowrow(boolcheck, checkobject) {
   if (boolcheck == false) {
     checkobject.checked = false;
-    checkobject.parentElement.parentElement.style = "background: rgba(0,0,0,0)"
+    checkobject.parentElement.style = "background: rgba(0,0,0,0)"
   } else {
   
     checkobject.checked = true;
-    checkobject.parentElement.parentElement.style = "background: rgba(0,0,0,0.3)"
+    checkobject.parentElement.style = "background: rgba(0,0,0,0.3)"
   }
 
 }
@@ -221,7 +227,8 @@ document.getElementById("btnResult").onclick = function () {
       // de los elementos sería más aconsejable que estuviera en un script de la
       // pagina que contiene la tabla.
 
-      seleccionados.push(checks[i].value)
+      // seleccionados.push(checks[i].value)
+      seleccionados.push(checks[i].parentElement.parentElement.id)
     }
   }
   alert('valores seleccionados: ' + seleccionados.toString());

@@ -1,0 +1,106 @@
+ {% load static %}
+   
+    
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/partidas.css' %}" />
+
+    
+    {% for partida in partidas %}
+
+    <div class="rowcontainer itcss" id="{{partida.partresult__id}}"> 
+
+      {% comment %} <div class=""> {% endcomment %}
+        
+          <div class="checkdivfran">
+          <input class="checkfran form-check-input" type="checkbox" id="{{partida.id}}" data-checkid="{{ forloop.counter}}" data-checkchild = 0 value="{{ forloop.counter}}">
+          </div>       
+         
+
+      {% comment %} </div> {% endcomment %}
+      
+
+           {% comment %} TITLE (PartResult) y DESCRIPCIÓN (partgendb__descripcion)  {% endcomment %}
+    <div class="input1">
+      <input data-titleid = "{{partida.partresult__id}}" class="" type="text" value = "{{partida.partresult__title}}">
+      <div   contenteditable>{{partida.partgendb__descripcion}}</div>
+    </div>
+
+
+
+    {% comment %} MEDICIONES {% endcomment %}
+
+      <div class=" input1">
+        <input type="number"
+         data-medid = "{{partida.id}}" value="{{partida.cantidad}}" />
+
+        <p><em>{{partida.partgendb__unit__ab}}</em></p>
+      </div>
+
+
+
+
+      <div class="input1">
+        <p> <strong class = "precio" value = "123" >AQUI INSERTAMOS EL PRECIO</strong></p>
+        <p>
+          <p> <em>  <span class ="precioUnit" value = {{partida.partgendb__precio_unit}} > {{partida.partgendb__precio_unit}}</span> €/m2</em> </p>
+        </p>
+      </div>
+
+      <div class="input1">
+        <select name="" id="">
+          {% comment %} <option value="" disabled selected>Selecciona una opción</option> {% endcomment %}
+          <option value=""></option>
+          <option value="1">patio exterior</option>
+          <option value="1">interior</option>
+        </select>
+        <select name="" id="">
+          <option value=""></option>
+          <option value="1">fase 1</option>
+          <option value="1">fase 2</option>
+        </select>
+      </div>
+
+      <div class="input1">
+        <select name="" id="">
+          <option value="1">electricidad</option>
+          <option value="1">movimiento de tierras</option>
+        </select>
+        <select name="" id="">
+          <option value="1">stepan kitura</option>
+          <option value="1">paco gaitan</option>
+        </select>
+      </div>
+
+      
+
+      <div class="item-6">
+        <label for="file">terminado:70%</label>
+
+        <br />
+
+        <progress id="file" max="100" value="70">70%</progress>
+      </div>
+
+      <div class="item-7">precio final / coef</div>
+      <div class="item-7">precio empr / coef</div>
+    <div class="">
+      <div class = "textfran" contenteditable data-commentid="{{partida.partresult__id}}">{{partida.partresult__comments|linebreaks}}</div>
+    </div>
+      <div class="item-7">
+        <button><i class="fa-solid fa-pen-to-square"></i></button>
+        <button><i class="fa-solid fa-trash"></i></button>
+         </div>
+    </div>
+
+
+    {% endfor %}
+    
+    <p>{{partidas.1}}</p>
+
+{% comment %} nofunciona {% endcomment %}
+    <script>       
+      var hola = "holaaa";
+       partidas = {{partidas.1}};   
+    </script>
+  {% comment %} </body>
+</html> {% endcomment %}

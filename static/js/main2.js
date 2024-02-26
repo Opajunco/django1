@@ -32,10 +32,19 @@ function busqueda(url, funcion) {
 // esto ya iría en los js de cada pagina
 // la funcion que usa la funcion busqueda tiene debe tener un solo argumento que es el json
 
-function prueba(jsonvalue) {
-    console.log("ya estamos en la funcion de callback")
-    console.log(jsonvalue);
-}
 
 
-busqueda("../../obras/get-partidas-json/",prueba);
+
+
+
+
+
+
+
+
+function limitDecimalPlaces(e, count) {
+    if (e.target.value.indexOf('.') == -1) { return; }
+    if ((e.target.value.length - e.target.value.indexOf('.')) > count) {
+      e.target.value = parseFloat(e.target.value).toFixed(count);
+    }
+  }

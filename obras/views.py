@@ -60,13 +60,51 @@ def get_partidas_json(request,idObra, text=''):
 
 @login_required(login_url='login')
 def partidas(request, idObra):
-    partidas =['enfoscado de cemento dfsgd sdfg sdg sdfgsegserg rg sdgshsrhtsrth rth rthfhrth rg rhetherthwrgshdfhdh rthrth sfhddfhdfghdrthrtdhdghdf '
-               , 'alicatado en baño hdfghdhssldkgj sfgjsddlkg slñkfgjsñlkfgj sñdlkgjsñijgñdfjgñlksdj gñlksj dfñglkjs lkgj sñldkg sdlfg'
-               , 'falso techo dsgls dflñj dfñglsjfñlgjsñdlfgjksñlkfjgñlsdfjñglkjsdfñlkgjdfkjgñlksdjfgñlkjsdlfkgjsd gsd fkjdfglksjd gñlsjd ñfgkjsdgj sdgj lñskfjgñlskdjf gsdjfskf', 'cocina'
-               , 'picado de pared exterior'
-               , 'pintado de rejas', 'asdñlfkjalñkdkf', 'añlsdkfjffladf','aslfdjkldaf']   
 
-    return render(request, 'partidas.html', {
-        'partidas': partidas,
+    return render(request, 'partidas.html', {        
         'titulo': 'Partidas',
+        'idObra':idObra ,
     })
+    
+def get_partidas_html(request,idObra, text=''):
+    current_user = request.user
+    parti4 = list(PartGen.objects.filter(partresult__obra=idObra).values('id', 'partresult__id', 'partresult__title','partresult__comments', 'cantidad', 'partgendb__descripcion','partgendb__precio_unit', 'partgendb__unit__ab', 'partgendb__capitulo__name' ))
+    if (text==''): partidas = parti4
+    else: partidas = list(Obra.objects.filter(concepto__icontains = text ).values()) 
+    # la parte del else está mal 
+    
+    # data = {'partidas': partidas}
+    # return JsonResponse(data)
+    
+    return render(request, 'get-partidas.html', {
+    'titulo': 'partidas', 
+    'partidas': partidas,
+    'indice': '0' ,
+    })
+    
+def editfieldspartis(request, editcode, id, content):
+    
+    if editcode=='update-comment':
+        parti = PartResult.objects.get(pk=id)
+        parti.comments = content
+        parti.save(update_fields=['comments'])
+        data = {'message': 'comments updated', 'comments': parti.comments}
+        return JsonResponse(data)
+    
+    elif editcode=='update-med':
+        partigen = PartGen.objects.get(pk=id)
+        partigen.cantidad = content
+        partigen.save(update_fields=['cantidad'])
+        partigen = PartGen.objects.get(pk=id) 
+        # //esto es para refrescar la información guardada en la base de datos
+        # para evitar los numeros con muchos decimales, etc
+        print(partigen.cantidad)
+        data = {'message': 'comments updated', 'cantidad': partigen.cantidad}
+        return JsonResponse(data)
+    
+    if editcode=='update-title':
+        parti = PartResult.objects.get(pk=id)
+        parti.title = content
+        parti.save(update_fields=['title'])
+        data = {'message': 'title updated', 'comments': parti.title}
+        return JsonResponse(data)

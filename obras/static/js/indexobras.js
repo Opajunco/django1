@@ -33,7 +33,8 @@ const listarObras = async () => {
 
                 }
 
-                html += `<div class="rowfran"><div class="checkdivfran">
+                html += `
+                <div class="rowfran"><div class="checkdivfran">
                 <input class="checkfran form-check-input" type="checkbox" id="${obra.id}"
                    data-checkid="${indice}" data-checkchild = ${indice_ended}
                    name="${obra.id}" value="${obra.id}">
@@ -41,7 +42,8 @@ const listarObras = async () => {
                 <div class=""style="width:600px;margin-top:20px;margin-left:20px">
                 <a class="form-group form-check-label pl-5 unselectable not-selectable" href= "./partidas/${obra.id}/ ">${obra.titulo}</a>
                 </div>
-                </div>`
+                </div>
+                `
                 indice += 1;
                 indicebloque = indice_ended;
             });

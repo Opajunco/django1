@@ -3,31 +3,41 @@
 }
 
 
+i{
+  /* width: 2rem;  
+  height:2rem; */
+  margin-left: 2px;
+  margin-right: 2px;
+  font-size: 1.5em;
+}
+
+/* .italic { font-style: italic; } */
+
 body{
     margin:0px;
     margin-top: 50px;
    
 }
 
-.container{
+.rowcontainer{
   width: 100%;
     min-width: 900px;
     display: grid;
-    grid-template-columns: 60px 3fr 1fr 1fr 2fr 2fr 2fr 1fr 1fr 2fr 100px;
+    grid-template-columns: 60px 4fr 1fr 1fr 2fr 2fr 2fr 1fr 1fr 2fr 100px;
     /* check - identif/description - precio/preciounit -  zona/fase - capitulo/empresa -  terminado/barrita- preciofinal/coef - precioemp/coef -comentarios */
     min-height: 50px;
     /* border-width: 1px;
     border-collapse: collapse; */
 }
 
-.container p {
+.rowcontainer p {
   margin: 0px;
   padding: 0px;
 }
 .containernav{
   min-width: 900px;
   display: grid;
-  grid-template-columns: 80px 3fr 7fr 200px 200px;
+  grid-template-columns: 60px 1fr 200px;
   
   height: 50px;
   width: 100%;
@@ -35,19 +45,31 @@ body{
   border-collapse: collapse; */
 }
 
+.rowcontainer div {
+  border-collapse: collapse;
+    padding: 5px; 
+    overflow: hidden; 
+}
 
+
+
+/* borrar */
 .itcss {
     border-collapse: collapse;
-    
+    padding: 5px;    
     border-color: blue;
     border-style: solid;
     border-width: 0px;
-    border-bottom-width: 1px;
-    /* max-width: 50 px; */
-    overflow: hidden; 
-    /* muy importante para que no se distorsionen los anchos de las celdas */
+    border-bottom-width: 1px;    
+    
+    padding: 5px; 
+    padding-bottom: 10px;
+    overflow: hidden; /* muy importante para que no se distorsionen los anchos de las celdas */
     
 }
+
+
+
 .stickheadcol1 { position: sticky; top:50px;left: 0px; z-index: 2; background-color: rgb(135, 220, 226);}
 .stickheadcol2 { position: sticky; top:50px;left: 80px; z-index: 2; background-color: rgb(135, 220, 226);}
 .sticknav { position: fixed; top:0px; left: 0px; z-index: 2; background-color: rgb(135, 220, 226);}
@@ -75,5 +97,18 @@ body{
   .input1 input,select, progress{
     text-align:center;
     width:80%;
-
   }
+
+div .textfran {
+  padding-left: 5px;
+  width: 95%;
+  height:100%;
+  background-color: aliceblue;
+  border-radius: 5px;
+  /* top:5px; */
+  /* padding: 5px; */
+  /* margin-top: 5px; */
+  /* padding-bottom: 40px; */
+  
+
+}

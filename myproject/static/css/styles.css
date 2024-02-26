@@ -73,7 +73,7 @@ min-height: 60px;
 }
 
 
-form input[type="text"],
+/* form input[type="text"],
 form input[type="email"],
 form input[type="password"],
 form textarea,
@@ -81,7 +81,7 @@ form select{
     width : 100%;
     margin-bottom: 10px;
 
-}
+} */
 
 
 

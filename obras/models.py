@@ -46,7 +46,7 @@ class PartGenDB(models.Model):
     org = models.ForeignKey(Org, on_delete=models.CASCADE)   
     unit = models.ForeignKey(Unit, on_delete=models.CASCADE)
     capitulo = models.ForeignKey(Capitulo, on_delete=models.CASCADE)    
-    precio_unit = models.DecimalField(max_digits= 12, decimal_places=4)
+    precio_unit = models.DecimalField(max_digits= 10, decimal_places=2)
     descripcion = models.TextField(max_length=600)
     comentarios = models.TextField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -110,6 +110,16 @@ class PartGen(models.Model):
     
     
 
+class Material(models.Model):    
+    org = models.ForeignKey(Org, on_delete=models.CASCADE)   
+    unit = models.ForeignKey(Unit, on_delete=models.CASCADE)    
+    description = models.CharField(max_length=100)
+    comments = models.TextField(blank=True)
+    precio_unit = models.DecimalField(max_digits= 10, decimal_places=2, default=0)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    created_by = models.DateTimeField(auto_now=True)
     
-
+    def __str__(self) -> str:
+        return "{}".format(self.description)  
     

@@ -9,6 +9,8 @@ urlpatterns = [
     
     path('flexbox/', views.flexbox, name='flexbox'), 
     path('flexbox2/', views.flexbox2, name='flexbox2'),
-    path('tasascee/', views.tasascee, name='tasascee')
+    path('tasascee/', views.tasascee, name='tasascee'),
+    # path(r"contacto/", contact, name="contact"),
 ]  
+
 
